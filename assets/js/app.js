@@ -1,3 +1,11 @@
+var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
+var messages = {
+	correct: "YES! You are right!",
+	incorrect: "STRIKE! You missed it.",
+	endTime: "You're Out...    of time!",
+	finished: "Alright! Let's look at the scorecard..."
+}
+
 var triviaQuestions = [{
 	question: "Babe Ruth played for what professional baseball team before joining the Boston Red Sox on July 11, 1914?",
 	answerList: ["NY Yankees", "Baltimore Orioles", "NY Giants", "Boston Braves"],
@@ -61,15 +69,6 @@ var triviaQuestions = [{
 }];
 
 
-
-var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
-var messages = {
-	correct: "YES! You are right!",
-	incorrect: "STRIKE! You missed it.",
-	endTime: "You're Out...    of time!",
-	finished: "Alright! Let's look at the scorecard..."
-}
-
 $('#startBtn').on('click', function(){
 	$(this).hide();
 	newGame();
@@ -112,7 +111,7 @@ function newQuestion(){
 	$('.thisChoice').on('click',function(){
 		userSelect = $(this).data('index');
 		clearInterval(time);
-		answerPage();
+		checkAnswer();
 	});
 }
 
@@ -121,7 +120,7 @@ function countdown(){
 	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	answered = true;
 	//sets timer to go down
-	time = setInterval(showCountdown, 1000);
+	time = setInterval(showCountdown, 900);
 }
 
 function showCountdown(){
@@ -130,11 +129,11 @@ function showCountdown(){
 	if(seconds < 1){
 		clearInterval(time);
 		answered = false;
-		answerPage();
+		checkAnswer();
 	}
 }
 
-function answerPage(){
+function checkAnswer(){
 	$('#currentQuestion').empty();
 	$('.thisChoice').empty(); 
 	$('.question').empty();
