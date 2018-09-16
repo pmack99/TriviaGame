@@ -11,15 +11,15 @@ var triviaQuestions = [{
 	answerList: ["Dave Winfield", "Mark McGuire", "Barry Bonds", "Cal Ripken Jr."],
 	answer: 3
 },{
-	question: "What 1929 feat did Lee Richmond perform in a Major League Baseball first?",
+	question: "What amazing feat did Lee Richmond accomplish in a 1929 Major League Baseball game?",
 	answerList: ["Hit a grand slam", "Struck out 6 times in one game", "Pitched a perfect game", "Hit 4 home runs in one game"],
 	answer: 2
 },{
-	question: "Before playing in the majors, Jackie Robinson played with the minor league Montreal Royals, the top farm club of which organization?",
+	question: "Before playing in the Major Leagues, Jackie Robinson played with the minor league Montreal Royals, the top farm club of which organization?",
 	answerList: ["Kansas City Royals", "NY Yankees", "Boston RedSox", "Brooklyn Dodgers"],
 	answer: 3
 },{
-	question: "What up-and-coming star player saw his first World Series with the Yankees in 1936 as Babe Ruth's replacement?",
+	question: "What up-and-coming star player saw his first World Series with the Yankees in 1936 as Babe Ruth's 'replacement'?",
 	answerList: ["Lou Gehrig", "Ty Cobb", "Joe DiMaggio", "Mickey Mantle"],
 	answer: 2
 },{
@@ -43,7 +43,7 @@ var triviaQuestions = [{
 	answerList: ["Jim Palmer", "Nolan Ryan", "Greg Maddux", "Mariano Rivera"],
 	answer: 0
 },{
-	question: "In the mythology surrounding the Chicago Cubs, what curse is responsible for the team not reaching the World Series since 1945?",
+	question: "In the mythology surrounding the Chicago Cubs, what curse is responsible for that team not reaching the World Series since 1945?",
 	answerList: ["The Curveball Curse", "The Curse of the Billy Goat", "Curse of the Bambino", "The Chicago Fire Curse"],
 	answer: 1
 },{
@@ -64,9 +64,9 @@ var triviaQuestions = [{
 
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
 var messages = {
-	correct: "Correct, you are right!",
+	correct: "YES! You are right!",
 	incorrect: "Wrong, that's not it.",
-	endTime: "You're Out.... of time!",
+	endTime: "You're Out....    of time!",
 	finished: "Alright! Let's look at the scorecard."
 }
 
@@ -95,7 +95,6 @@ function newGame(){
 function newQuestion(){
 	$('#message').empty();
 	$('#correctedAnswer').empty();
-	$('#gif').empty();
 	answered = true;
 	
 	//sets up new questions & answerList
@@ -137,7 +136,7 @@ function showCountdown(){
 
 function answerPage(){
 	$('#currentQuestion').empty();
-	$('.thisChoice').empty(); //Clears question page
+	$('.thisChoice').empty(); 
 	$('.question').empty();
 
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
@@ -146,7 +145,8 @@ function answerPage(){
 	//checks to see correct, incorrect, or unanswered
 	if((userSelect == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
-		$('#message').html(messages.correct);
+        $('#message').html(messages.correct);
+        $('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
 	} else if((userSelect != rightAnswerIndex) && (answered == true)){
 		incorrectAnswer++;
 		$('#message').html(messages.incorrect);
@@ -159,10 +159,10 @@ function answerPage(){
 	}
 	
 	if(currentQuestion == (triviaQuestions.length-1)){
-		setTimeout(scoreboard, 5000)
+		setTimeout(scoreboard, 4000)
 	} else{
 		currentQuestion++;
-		setTimeout(newQuestion, 5000);
+		setTimeout(newQuestion, 4000);
 	}	
 }
 
@@ -170,7 +170,6 @@ function scoreboard(){
 	$('#timeLeft').empty();
 	$('#message').empty();
 	$('#correctedAnswer').empty();
-	$('#gif').empty();
 
 	$('#finalMessage').html(messages.finished);
 	$('#correctAnswers').html("Correct Answers: " + correctAnswer);
@@ -178,5 +177,5 @@ function scoreboard(){
 	$('#unanswered').html("Unanswered: " + unanswered);
 	$('#startOverBtn').addClass('reset');
 	$('#startOverBtn').show();
-	$('#startOverBtn').html('Start Over?');
+	$('#startOverBtn').html('Click here to Start over');
 }

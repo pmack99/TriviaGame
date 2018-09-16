@@ -1,6 +1,47 @@
-body {
+.jumbotron{
     background: none;
     background-image: url("/assets/images/baseball.jpg");
     
 }
+
+.wrapper{
+    text-align: center;
+}
+
+#bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+      
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    opacity: .3;
+  }
+
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+}
+
+h2 {
+    font-family: 'Ewert', cursive;
+}
+
+p {
+    font-family: 'Rubik', sans-serif;
+
+}
+
+.container{
+    text-align: center;
+    padding: 5px;
+    background-color: snow;
+    margin: 20px;
+    margin-top: 0px;
+    border-radius: 25px;
+
+}
+
 
