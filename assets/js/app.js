@@ -1,9 +1,9 @@
 var triviaQuestions = [{
-	question: "What team did Babe Ruth play for before joining the Boston Red Sox?",
-	answerList: ["NY Yankees", "Baltimore Orioles", "Tampa Bay Rays", "Boston Braves"],
+	question: "Babe Ruth played for what professional baseball team before joining the Boston Red Sox on July 11, 1914?",
+	answerList: ["NY Yankees", "Baltimore Orioles", "NY Giants", "Boston Braves"],
 	answer: 1
 },{
-	question: "What team moved to D.C. to become the Washington Nationals in 2005?",
+	question: "What team moved to Washington, D.C. to become the Washington Nationals in 2005?",
 	answerList: ["Montreal Expos", "Milwaukee Brewers", "Brooklyn Dodgers", "Kansas CIty Monarchs"],
 	answer: 0
 },{
@@ -23,15 +23,15 @@ var triviaQuestions = [{
 	answerList: ["Lou Gehrig", "Ty Cobb", "Joe DiMaggio", "Mickey Mantle"],
 	answer: 2
 },{
-	question: "What is the oldest active ball park in Major League Baseball?",
+	question: "What is the oldest active baseball stadium in Major League Baseball?",
 	answerList: ["Yankee Stadium", "Fenway Park", "Wrigley Field", "Marlins Park"],
 	answer: 1
 },{
-	question: "What player was accused of using too much pine tar on his bat on July 24, 1983, causing a game-winning home run to be nullified?",
+	question: "What player was accused of using too much pine tar on his bat on July 24, 1983, causing his game-winning home run to be nullified?",
 	answerList: ["Dick Howser", "Graig Nettles", "George Brett", "Goose Gossage"],
 	answer: 2
 },{
-	question: "What basketball great made the surprising decision to switch sports, signing a minor league baseball contract with the Chicago White Sox in 1994?",
+	question: "What NBA basketball star made the surprising decision to switch sports, signing a minor league baseball contract with the Chicago White Sox in 1994?",
 	answerList: ["Steph Curry", "Michael Jordan", "LeBron James", "Magic Johnson"],
 	answer: 1
 },{
@@ -39,7 +39,7 @@ var triviaQuestions = [{
 	answerList: ["Seattle Mariners", "Philadelphia Phillies", "Cleveland Indians", "Chicago WhiteSox" ],
 	answer: 3
 },{
-	question: "Who is the only pitcher in Major League Baseball to win a World Series games in three different decades?",
+	question: "Who is the only pitcher in Major League Baseball to win a World Series game in three different decades?",
 	answerList: ["Jim Palmer", "Nolan Ryan", "Greg Maddux", "Mariano Rivera"],
 	answer: 0
 },{
@@ -65,9 +65,9 @@ var triviaQuestions = [{
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
 var messages = {
 	correct: "YES! You are right!",
-	incorrect: "Wrong, that's not it.",
-	endTime: "You're Out....    of time!",
-	finished: "Alright! Let's look at the scorecard."
+	incorrect: "STRIKE! You missed it.",
+	endTime: "You're Out...    of time!",
+	finished: "Alright! Let's look at the scorecard..."
 }
 
 $('#startBtn').on('click', function(){
@@ -75,7 +75,7 @@ $('#startBtn').on('click', function(){
 	newGame();
 });
 
-$('#startOverBtn').on('click', function(){
+$('#reStartBtn').on('click', function(){
 	$(this).hide();
 	newGame();
 });
@@ -146,15 +146,15 @@ function answerPage(){
 	if((userSelect == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
         $('#message').html(messages.correct);
-        $('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+        $('#correctedAnswer').html('The correct answer is: ' + rightAnswerText);
 	} else if((userSelect != rightAnswerIndex) && (answered == true)){
 		incorrectAnswer++;
 		$('#message').html(messages.incorrect);
-		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+		$('#correctedAnswer').html('The correct answer is: ' + rightAnswerText);
 	} else{
 		unanswered++;
 		$('#message').html(messages.endTime);
-		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+		$('#correctedAnswer').html('The correct answer is: ' + rightAnswerText);
 		answered = true;
 	}
 	
@@ -170,12 +170,11 @@ function scoreboard(){
 	$('#timeLeft').empty();
 	$('#message').empty();
 	$('#correctedAnswer').empty();
-
 	$('#finalMessage').html(messages.finished);
 	$('#correctAnswers').html("Correct Answers: " + correctAnswer);
 	$('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswer);
 	$('#unanswered').html("Unanswered: " + unanswered);
-	$('#startOverBtn').addClass('reset');
-	$('#startOverBtn').show();
-	$('#startOverBtn').html('Click here to Start over');
+	$('#reStartBtn').addClass('reset');
+	$('#reStartBtn').show();
+	$('#reStartBtn').html('Click here to Start over');
 }
