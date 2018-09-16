@@ -20,17 +20,28 @@
     opacity: .3;
   }
 
+  #timeLeft{
+      color: red;
+      font-family: 'Rubik', sans-serif;
+  }
+
+
+.question{
+    font-family: 'Rubik', sans-serif;
+  }
+
 
 h1 {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Monoton', cursive;
 }
 
 h2 {
-    font-family: 'Ewert', cursive;
+    font-family: 'Monoton', cursive;
 }
 
 p {
     font-family: 'Rubik', sans-serif;
+    color: grey;
 
 }
 
