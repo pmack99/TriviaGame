@@ -13,27 +13,31 @@
     <title>PMack Trvia Game</title>
   </head>
   <body>
-    <div class="top">
-        <div class="container">
-          <h1 class="display-4">PMack's Trivia Game</h1>
-          <p class="lead">Play my baseball trivia game. You have 5 seconds to answer each question!</p>
-          <button class='btn btn-primary' id='startBtn'>Start</button>
+    <div class="wrapper">
 
-          <br>
-          <hr>
+        <div class="container">
+                <h1 class="display-4">PMack's Trivia Game</h1>
+                <p class="lead">Play my baseball trivia game. You have 7 seconds to answer each question!</p>
+                <button class='btn btn-primary' id='startBtn'>Start</button>
+
+                 <br>
+                 <hr>
 
                  <!-- Question page -->
+                
+                <div id=currentQuestion></div> 
                 <div id=timeLeft></div>
                 <br>
-                <div id=currentQuestion></div>
-                <hr>
                 <div class='question'></div>
+                <hr>
                 <div class='answerList'></div>
+
                 <!-- Answer Page -->
                 <div id=message></div>
                 <br>
                 <div id=correctedAnswer></div>
                 
+
                  <!-- Scoreboard -->
                 <div id=finalMessage></div>
                 <br>
@@ -42,12 +46,9 @@
                 <div id=unanswered></div>
                 <hr>
                 <div id='startOverBtn'></div>
-    </div>
-
-
-
-    </div>
-</div>
+        </div>
+        </div>
+</body>
 
     <script src="https://code.jquery.com/jquery.js"></script>           
     <script type="text/javascript" src="assets/js/app.js"></script>

@@ -61,13 +61,13 @@ var triviaQuestions = [{
 }];
 
 
-var gifArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10', 'question11', 'question12', 'question13','question14','question15'];
+
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
 var messages = {
-	correct: "Yes, that's right!",
-	incorrect: "No, that's not it.",
-	endTime: "Out of time!",
-	finished: "Alright! Let's see how well you did."
+	correct: "Correct, you are right!",
+	incorrect: "Wrong, that's not it.",
+	endTime: "You're Out.... of time!",
+	finished: "Alright! Let's look at the scorecard."
 }
 
 $('#startBtn').on('click', function(){
@@ -118,11 +118,11 @@ function newQuestion(){
 }
 
 function countdown(){
-	seconds = 5;
+	seconds = 7;
 	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	answered = true;
 	//sets timer to go down
-	time = setInterval(showCountdown, 500);
+	time = setInterval(showCountdown, 1000);
 }
 
 function showCountdown(){
